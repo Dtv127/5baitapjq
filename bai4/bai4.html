@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab đơn giản - jQuery</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .wrap {
+      width: 340px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      background: #e2e8f0;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
+    .panel {
+      display: none;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .panel.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="tabs">
+      <button type="button" class="tab-btn active" data-target="t1">Tab 1</button>
+      <button type="button" class="tab-btn" data-target="t2">Tab 2</button>
+    </div>
+
+    <div id="t1" class="panel active">Nội dung của Tab 1: Làm quen với jQuery.</div>
+    <div id="t2" class="panel">Nội dung của Tab 2: Chuyển đổi vùng hiển thị.</div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $(".tab-btn").on("click", function () {
+        const targetId = $(this).data("target");
+
+        $(".tab-btn").removeClass("active");
+        $(this).addClass("active");
+
+        $(".panel").removeClass("active");
+        $("#" + targetId).addClass("active");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jQuery đơn giản</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      padding: 40px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .box {
+      width: 360px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    button {
+      padding: 8px 14px;
+      margin-right: 8px;
+      border: none;
+      border-radius: 6px;
+      background: #0284c7;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #0369a1;
+    }
+
+    #note {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #e0f2fe;
+      color: #0f172a;
+      font-size: 14px;
+    }
+
+    .done {
+      background: #dcfce7 !important;
+      color: #166534 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>Thực hành jQuery</h3>
+    <button type="button" id="btnToggle">Ẩn / Hiện</button>
+    <button type="button" id="btnDone">Đánh dấu xong</button>
+
+    <div id="note">Đang làm bài tập jQuery cơ bản.</div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#btnToggle").on("click", function () {
+        $("#note").slideToggle(200);
+      });
+
+      $("#btnDone").on("click", function () {
+        $("#note").toggleClass("done").text("Đã hoàn thành bài jQuery!");
+      });
+    });
+  </script>
+</body>
+</html>

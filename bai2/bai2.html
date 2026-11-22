@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bộ đếm jQuery - Màu hồng</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #fdf2f8;
+      color: #4a044e;
+      display: flex;
+      justify-content: center;
+      padding-top: 60px;
+    }
+
+    .counter-box {
+      width: 320px;
+      background: #ffffff;
+      border: 1px solid #fbcfe8;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(219, 39, 119, 0.12);
+    }
+
+    .counter-box h3 {
+      margin: 0 0 12px;
+      color: #be185d;
+    }
+
+    #count {
+      font-size: 40px;
+      font-weight: 700;
+      color: #db2777;
+      margin: 12px 0 20px;
+    }
+
+    button {
+      padding: 8px 14px;
+      margin: 0 4px;
+      border: none;
+      border-radius: 8px;
+      background: #ec4899;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #be185d;
+    }
+
+    #btnReset {
+      background: #f472b6;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-box">
+    <h3>Bộ đếm nhanh</h3>
+    <div id="count">0</div>
+    <button type="button" id="btnMinus">-1</button>
+    <button type="button" id="btnPlus">+1</button>
+    <button type="button" id="btnReset">Reset</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      let count = 0;
+
+      function updateDisplay() {
+        $("#count").text(count);
+      }
+
+      $("#btnPlus").on("click", function () {
+        count++;
+        updateDisplay();
+      });
+
+      $("#btnMinus").on("click", function () {
+        count--;
+        updateDisplay();
+      });
+
+      $("#btnReset").on("click", function () {
+        count = 0;
+        updateDisplay();
+      });
+    });
+  </script>
+</body>
+</html>

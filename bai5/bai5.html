@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xoá mục - jQuery</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .box {
+      width: 320px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+    }
+
+    li {
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      background: #f1f5f9;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>Bấm vào dòng để xoá</h3>
+    <ul id="items">
+      <li>Mục số 1</li>
+      <li>Mục số 2</li>
+      <li>Mục số 3</li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#items").on("click", "li", function () {
+        $(this).fadeOut(150, function () {
+          $(this).remove();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
